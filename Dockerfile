@@ -8,6 +8,9 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 
+# Step 4: Set NODE_OPTIONS to fix OpenSSL error
+ENV NODE_OPTIONS=--openssl-legacy-provider
+
 # Step 4: Copy the rest of the application code
 COPY . .
 
